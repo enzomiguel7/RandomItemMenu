@@ -16,5 +16,19 @@ namespace RandomItemMenu
         public string Description = "";
         public string Price;
 
+        public void Generate()
+        {
+            string randomProtein = Proteins[randomizer.Next(Proteins.Length)];
+            string randomCondiment = Condiments[randomizer.Next(Condiments.Length)];
+            string randomBread = Breads[randomizer.Next(Breads.Length)];
+
+             Description = randomProtein + " with " + randomCondiment + " on " + randomBread;
+
+            decimal bucks = randomizer.Next(2, 5);
+            decimal cents = randomizer.Next(1, 98);
+            decimal price = bucks + (cents * 0.1M);
+            Price = price.ToString("c");                                 
+        }
+
     }
 }
